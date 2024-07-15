@@ -6,6 +6,9 @@ int height = Console.WindowHeight - 1;
 int width = Console.WindowWidth - 5;
 bool shouldExit = false;
 
+// Player speed
+int speedx = 1;
+
 // Console position of the player
 int playerX = 0;
 int playerY = 0;
@@ -65,6 +68,20 @@ void ChangePlayer()
     player = states[food];
     Console.SetCursorPosition(playerX, playerY);
     Console.Write(player);
+
+    if(player == states[2]){
+
+        FreezePlayer();
+    
+    }else if(player == states[1]){
+
+        speedx = 2;
+
+    }else if(player == states[0]){
+
+        speedx = 1;
+
+    }
 }
 
 // Temporarily stops the player from moving
@@ -84,16 +101,16 @@ void Move()
     switch (Console.ReadKey(true).Key) 
     {
         case ConsoleKey.UpArrow:
-            playerY--; 
+            playerY --; 
             break;
 		case ConsoleKey.DownArrow: 
-            playerY++; 
+            playerY ++; 
             break;
 		case ConsoleKey.LeftArrow:  
-            playerX--; 
+            playerX -= speedx; 
             break;
 		case ConsoleKey.RightArrow: 
-            playerX++; 
+            playerX += speedx; 
             break;
 		case ConsoleKey.Escape:     
             shouldExit = true; 
@@ -115,8 +132,13 @@ void Move()
     playerX = (playerX < 0) ? 0 : (playerX >= width ? width : playerX);
     playerY = (playerY < 0) ? 0 : (playerY >= height ? height : playerY);
 
+    if(playerX == foodX && playerY == foodY) 
+    {
+        ChangePlayer();
+        ShowFood();
+    }
+
     // Draw the player at the new location
-    ChangePlayer();
     Console.SetCursorPosition(playerX, playerY);
     Console.Write(player);
 }

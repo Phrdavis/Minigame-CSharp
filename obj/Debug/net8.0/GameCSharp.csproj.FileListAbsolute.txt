@@ -12,3 +12,4 @@ D:\Projetos - Davi\C#\GameCSharp\obj\Debug\net8.0\refint\GameCSharp.dll
 D:\Projetos - Davi\C#\GameCSharp\obj\Debug\net8.0\GameCSharp.pdb
 D:\Projetos - Davi\C#\GameCSharp\obj\Debug\net8.0\GameCSharp.genruntimeconfig.cache
 D:\Projetos - Davi\C#\GameCSharp\obj\Debug\net8.0\ref\GameCSharp.dll
+D:\Projetos - Davi\C#\GameCSharp\obj\Debug\net8.0\GameCSharp.sourcelink.json
